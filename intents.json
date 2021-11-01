@@ -1,0 +1,35 @@
+{
+  "intents": [
+    {
+      "tag": "Saudação",
+      "patterns": ["ola", "oi", "boa tarde", "bom dia", "boa noite"],
+      "responses": ["Ola!", "Oi!", "Boa tarde!", "Bom dia!", "Boa noite!"]
+    },
+    {
+      "tag": "Adeus",
+      "patterns": ["Adeus", "Tchau"],
+      "responses": ["Adeus", "Tchau","Passar bem","Toma cuidado com Osasco"]
+    },
+
+    {
+      "tag": "Nome",
+      "patterns": ["Poderia me dizer seu nome?","Qual seu nome?","Como devo te chamar?"],
+      "responses":["Meu nome é Hope."]
+    },
+
+    { "tag": "Criador",
+         "patterns": ["Quem te programou?","Quem te criou?","Que é seu pai?"],
+        "responses": ["Fui programado pela Equipe 7 do Instituo Proa, composto por Bruno Costa Prado, Naiara, Jefersson, Guilherme, Beatriz", "Fui programado por Bruno Costa Prado, você pode conferir o repositorio dele aqui:https://github.com/BrunoCostaPrado?tab=repositories"]
+     },
+
+    { "tag": "Ajuda", 
+        "patterns": ["Poderia meu ajudar?","Poderia me tirar uma duvida?","Estou com duvidas"],
+        "responses": ["Como posso ajudar", "Mas é claro."]
+     },
+
+    { "tag": "Codigo", 
+        "patterns": ["Quem te programou?","Quem te criou?","Que é seu pai?"],
+        "responses": ["Adeus", "Tchau"]
+     }
+  ]
+}
