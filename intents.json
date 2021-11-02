@@ -2,18 +2,7 @@
   "intents": [
     {
       "tag": "Saudação",
-      "patterns": [
-        "ola",
-        "oi",
-        "boa tarde",
-        "bom dia",
-        "boa noite",
-        "Ola",
-        "Oi",
-        "Boa Tarde",
-        "Bom dia",
-        "Boa noite"
-      ],
+      "patterns": ["ola","oi","boa tarde","bom dia","boa noite"],
       "responses": ["Ola!", "Oi!", "Boa tarde!", "Bom dia!", "Boa noite!"]
     },
     {
@@ -43,9 +32,7 @@
     {
       "tag": "Pai",
       "patterns": ["Que é seu pai?"],
-      "responses": [
-        "Fui programado por Bruno Costa Prado e seu repositorio se encontra em :https://github.com/BrunoCostaPrado?tab=repositories"
-      ]
+      "responses": ["Fui programado por Bruno Costa Prado e seu repositorio se encontra em :https://github.com/BrunoCostaPrado?tab=repositories"]
     },
 
     {
