@@ -8,7 +8,7 @@ from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import load_model
 
 lemma = WordNetLemmatizer()
-intents = json.loads(open('Hope/intents.json').read())
+intents = json.loads(open('intents.json').read())
 
 
 words = pickle.load(open('words.plk', 'rb'))

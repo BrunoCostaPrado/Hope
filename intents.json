@@ -2,7 +2,18 @@
   "intents": [
     {
       "tag": "Saudação",
-      "patterns": ["ola", "oi", "boa tarde", "bom dia", "boa noite"],
+      "patterns": [
+        "ola",
+        "oi",
+        "boa tarde",
+        "bom dia",
+        "boa noite",
+        "Ola",
+        "Oi",
+        "Boa Tarde",
+        "Bom dia",
+        "Boa noite"
+      ],
       "responses": ["Ola!", "Oi!", "Boa tarde!", "Bom dia!", "Boa noite!"]
     },
     {
@@ -23,10 +34,17 @@
 
     {
       "tag": "Criador",
-      "patterns": ["Quem te programou?", "Quem te criou?", "Que é seu pai?"],
+      "patterns": ["Quem te programou?", "Quem te criou?"],
       "responses": [
-        "Fui programado pela Equipe 7 do Instituo Proa, composto por Bruno Costa Prado, Naiara, Jefersson, Guilherme, Beatriz",
-        "Fui programado por Bruno Costa Prado, você pode conferir o repositorio dele aqui:https://github.com/BrunoCostaPrado?tab=repositories"
+        "Fui programado pela Equipe 7 do Instituo Proa, composto por Bruno Costa Prado, Naiara, Jefersson, Guilherme Oliveira, Beatriz"
+      ]
+    },
+
+    {
+      "tag": "Pai",
+      "patterns": ["Que é seu pai?"],
+      "responses": [
+        "Fui programado por Bruno Costa Prado e seu repositorio se encontra em :https://github.com/BrunoCostaPrado?tab=repositories"
       ]
     },
 
@@ -37,13 +55,22 @@
         "Poderia me tirar uma duvida?",
         "Estou com duvidas"
       ],
-      "responses": ["Como posso ajudar", "Mas é claro."]
+      "responses": ["Como posso ajudar?"]
     },
 
     {
       "tag": "Codigo",
-      "patterns": ["Poderia me fornecer seu codigo?", "Onde fica armazenado seu codigo?", "Onde fica seu codigo?"],
-      "responses": ["Meu codigo pode ser encrontado aqui: https://github.com/BrunoCostaPrado/Hope"]
-    }
+      "patterns": [
+        "Poderia me fornecer seu codigo?",
+        "Onde fica armazenado seu codigo?",
+        "Onde fica seu codigo?"
+      ],
+      "responses": [
+        "Meu codigo pode ser encrontado aqui: https://github.com/BrunoCostaPrado/Hope"
+      ]
+    },
+    {"tag":"DemoDay",
+      "patterns":"DemoDay",
+      "responses":"O repositorio do projeto DemoDay, encontra-se em :https://github.com/BrunoCostaPrado/DEMODAYG7"}
   ]
 }
