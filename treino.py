@@ -15,7 +15,7 @@ nltk.download('wordnet')
 
 lemmatizer = WordNetLemmatizer()
 
-intents = json.loads(open('Hope/intents.json').read())
+intents = json.loads(open('intents.json').read())
 
 words = []
 classes = []
