@@ -1,64 +1,60 @@
-
 import random
 import json
-import pickle
-import numpy as np
-import nltk
 
-from nltk.stem import WordNetLemmatizer
-from tensorflow.keras.models import load_model
+import torch
 
-lemma = WordNetLemmatizer()
-intents = json.loads(open('intents.json').read())
+from model import NeuralNet
+from nltk_utils import bag_of_words, tokenize
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+with open('intents.json', 'r') as json_data:
+    intents = json.load(json_data)
+
+FILE = "data.pth"
+data = torch.load(FILE)
+
+input_size = data["input_size"]
+hidden_size = data["hidden_size"]
+output_size = data["output_size"]
+all_words = data['all_words']
+tags = data['tags']
+model_state = data["model_state"]
+
+model = NeuralNet(input_size, hidden_size, output_size).to(device)
+model.load_state_dict(model_state)
+model.eval()
+
+bot_name = "Hope"
+
+def get_response(msg):
+    sentence = tokenize(msg)
+    X = bag_of_words(sentence, all_words)
+    X = X.reshape(1, X.shape[0])
+    X = torch.from_numpy(X).to(device)
+
+    output = model(X)
+    _, predicted = torch.max(output, dim=1)
+
+    tag = tags[predicted.item()]
+
+    probs = torch.softmax(output, dim=1)
+    prob = probs[0][predicted.item()]
+    if prob.item() > 0.75:
+        for intent in intents['intents']:
+            if tag == intent["tag"]:
+                return random.choice(intent['responses'])
+    
+    return "Não entendi"
 
 
-words = pickle.load(open('words.plk', 'rb'))
-classes = pickle.load(open('classes.plk', 'rb'))
-model = load_model('Hope_model.model')
-
-
-def clean_up_sentence(sentence):
-    sentence_words = nltk.word_tokenize(sentence)
-    sentence_words = [lemma.lemmatize(word) for word in sentence_words]
-    return sentence_words
-
-
-def bag_of_words(sentence):
-    sentence_words = clean_up_sentence(sentence)
-    bag = [0] * len(words)
-    for w in sentence_words:
-        for i, word in enumerate(words):
-            if word == w:
-                bag[i] = 1
-    return np.array(bag)
-
-
-def predict_class(sentence):
-    bow = bag_of_words(sentence)
-    res = model.predict(np.array([bow]))[0]
-    ERROR_Threshold = 0.25
-    result = [[i, r] for i, r in enumerate(res) if r > ERROR_Threshold]
-    result.sort(key=lambda x: x[1], reverse=True)
-    return_list = []
-    for r in result:
-        return_list.append({'intent': classes[r[0]], 'probability': str(r[1])})
-    return return_list
-
-
-def get_response(intents_list, intents_json):
-    tag = intents_list[0]['intent']
-    list_of_intents = intents_json['intents']
-    for i in list_of_intents:
-        if i['tag'] == tag:
-            result = random.choice(i['responses'])
+if __name__ == "__main__":
+    print("Vamos conversar! (aperte 'esc' para sair)")
+    while True:
+        sentence = input("Você: ")
+        if sentence == "esc":
             break
-    return result
 
+        resp = get_response(sentence)
+        print(resp)
 
-print("Foi! Bot funcionando")
-
-while True:
-    message = input("")
-    ints = predict_class(message)
-    res = get_response(ints, intents)
-    print(res)

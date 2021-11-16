@@ -1,5 +1,3 @@
-
-
 pip install nltk
 pip install tensorflow
 pip install -U --user keras_applications

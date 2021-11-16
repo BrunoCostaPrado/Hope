@@ -1,38 +1,59 @@
 {
   "intents": [
     {
-      "tag": "Saudação",
-      "patterns": ["ola","oi","boa tarde","bom dia","boa noite"],
-      "responses": ["Ola!", "Oi!", "Boa tarde!", "Bom dia!", "Boa noite!"]
+      "tag": "Saudacaoo",
+      "patterns": [
+        "ola",
+        "oi",
+        "boa tarde",
+        "bom dia",
+        "boa noite",
+        "Ola",
+        "Oi",
+        "Boa tarde",
+        "Bom dia"
+      ],
+      "responses": ["Ola!", "Oi!", "Bom dia!"]
     },
     {
       "tag": "Adeus",
       "patterns": ["Adeus", "Tchau"],
-      "responses": ["Adeus", "Tchau", "Passar bem", "Toma cuidado com Osasco"]
+      "responses": ["Adeus", "Tchau", "Passar bem"]
     },
-
+    {
+      "tag": "Osasco",
+      "patterns": ["Osasco", "osasco"],
+      "responses": ["Toma cuidado com Osasco","Cuidado com Osasco"]
+    },
+    {
+      "tag": "Jaison",
+      "patterns": ["Professor Jaison"],
+      "responses": ["O professor Jaison foi o professor responsavel por ensinar nossa equipe a ferramentas:HTML5, CSS3, JavaScript, MySQL e Java"]
+    },
     {
       "tag": "Nome",
       "patterns": [
         "Poderia me dizer seu nome?",
         "Qual seu nome?",
-        "Como devo te chamar?"
+        "Como devo te chamar?","Quem é você"
       ],
-      "responses": ["Meu nome é Hope."]
+      "responses": ["Eu me chamo Hope, fui criada com o intuito de tirar suas duvidas sobre o site."]
     },
 
     {
       "tag": "Criador",
-      "patterns": ["Quem te programou?", "Quem te criou?"],
+      "patterns": ["Quem te programou?"],
       "responses": [
-        "Fui programado pela Equipe 7 do Instituo Proa, composto por Bruno Costa Prado, Naiara, Jefersson, Guilherme Oliveira, Beatriz"
+        "Fui programado pela Equipe 7 do Instituo Proa, composto por Bruno Costa Prado, Guilherme Oliveira, Beatriz Francelino, Camila Correia, Naiara Santiago, Jeferson Fagundes"
       ]
     },
 
     {
       "tag": "Pai",
-      "patterns": ["Que é seu pai?"],
-      "responses": ["Fui programado por Bruno Costa Prado e seu repositorio se encontra em :https://github.com/BrunoCostaPrado?tab=repositories"]
+      "patterns": ["Quem é seu pai?", "Quem te criou?"],
+      "responses": [
+        "Fui programado por Bruno Costa Prado, pode conferir o repositorio dele aqui:https://github.com/BrunoCostaPrado?tab=repositories"
+      ]
     },
 
     {
@@ -42,7 +63,7 @@
         "Poderia me tirar uma duvida?",
         "Estou com duvidas"
       ],
-      "responses": ["Como posso ajudar?"]
+      "responses": ["Como posso ajudar", "Mas é claro."]
     },
 
     {
@@ -52,12 +73,7 @@
         "Onde fica armazenado seu codigo?",
         "Onde fica seu codigo?"
       ],
-      "responses": [
-        "Meu codigo pode ser encrontado aqui: https://github.com/BrunoCostaPrado/Hope"
-      ]
-    },
-    {"tag":"DemoDay",
-      "patterns":"DemoDay",
-      "responses":"O repositorio do projeto DemoDay, encontra-se em :https://github.com/BrunoCostaPrado/DEMODAYG7"}
+      "responses": ["Mas é claro: https://github.com/BrunoCostaPrado/Hope"]
+    }
   ]
 }
